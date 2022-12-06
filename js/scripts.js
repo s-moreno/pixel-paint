@@ -190,7 +190,7 @@ $(document).ready(function() {
   }
 
   // Llamamos a la función "crearLienzo" y la añadimos al html
-  $("#colores").after(crearLienzo(filas, columnas));
+  $("#juego").append(crearLienzo(filas, columnas));
 
   // eventos para determinar el color con qué pintar:
   $("#rojo").click(function () {
@@ -227,6 +227,39 @@ $(document).ready(function() {
   function colorActivado(td) {
     $("#activado").remove();
     $(td).append('<i id="activado" class="fa-solid fa-check"></i>');
+  }
+
+
+
+
+  // Función para borrar los colores del lienzo/matriz
+  function reiniciarLienzo() {
+    let tr, td;
+
+    let tabla = document.createElement("table"); //creamos la tabla
+    tabla.setAttribute("id", "matriz");
+
+    for (let i = 1; i <= filas; i++){
+      tr = document.createElement("tr"); //creamos una fila
+      for (let i = 1; i <= columnas; i++){
+        td = document.createElement("td") //creamos una columna
+        
+        // añadimos gestión de evento al hacer click en la celda
+        $(td).click(function () { 
+          controlClick(this);
+        });
+
+        // añadimos gestión de evento al posar el ratón sobre la celda
+        $(td).mouseover(function () { 
+          if (clicked) {
+            pintarCelda(this);
+          }
+        });
+        tr.appendChild(td); //añadimos la columna a la fila
+      }
+      tabla.appendChild(tr); //añadimos la fila a tabla
+    }
+    return tabla;
   }
 
 });
