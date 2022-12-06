@@ -189,8 +189,8 @@ $(document).ready(function() {
     }
   }
 
-  // Llamamos a la función "crearLienzo" y la añadimos al html
-  $("#colores").after(crearLienzo(filas, columnas));
+  // Llamamos a la función "crearLienzo" y la añadimos la tabla que crea al html
+  $("#juego").append(crearLienzo(filas, columnas));
 
   // eventos para determinar el color con qué pintar:
   $("#rojo").click(function () {
@@ -228,5 +228,28 @@ $(document).ready(function() {
     $("#activado").remove();
     $(td).append('<i id="activado" class="fa-solid fa-check"></i>');
   }
+
+
+
+
+  // Función para borrar los colores del lienzo/matriz
+  function reiniciarLienzo() {
+    for (let i; i < filas; i++) {
+      for (let j; j < columnas; j++) {
+        let celda = document.getElementById("#matriz").rows[i].cells[j];
+        console.log(typeof(celda))
+        console.log(celda);
+      }
+    }
+  }
+
+  // evento que reinicia (pinta en blanco) el lienzo/matriz
+  $("#reiniciar").click(function () { 
+    for (let i=0; i < filas; i++) {
+      for (let j=0; j < columnas; j++) {
+        document.getElementById("matriz").rows[i].cells[j].style.backgroundColor = "white";
+      }
+    }
+  });
 
 });

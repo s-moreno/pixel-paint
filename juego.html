@@ -16,22 +16,29 @@
     <title>Pixel Paint</title>
 </head>
 <body>
-    <main id="juego">
+    <main id="interfaz-juego">
         <h1 class="coloreado">Pixel Paint</h1>
-        <table id="colores">
-            <tr>
-                <td id="rojo" title="rojo"></td>
-                <td id="amarillo" title="amarillo"></td>
-                <td id="verde" title="verde"></td>
-                <td id="azul" title="azul"></td>
-                <td id="blanco" title="blanco">
-                    <i id="activado" class="fa-solid fa-check"></i>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="5">Color selecionado: <span id="color">blanco</span></td>
-            </tr>
-        </table>
+        <section class="seleccion-color">
+            <div>
+                <table id="colores">
+                    <tr>
+                        <td id="rojo" title="rojo"></td>
+                        <td id="amarillo" title="amarillo"></td>
+                        <td id="verde" title="verde"></td>
+                        <td id="azul" title="azul"></td>
+                        <td id="blanco" title="blanco">
+                            <i id="activado" class="fa-solid fa-check"></i>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div><i id="reiniciar" class="fa-solid fa-arrows-rotate" title="borrar lienzo"></i></div>
+            <div><p class="p-seleccion">Color selecionado: <span id="color">blanco</span></p></div>
+        </section>
+        <section id="juego">
+            
+        </section>
+        
     </main>
     
 </body>

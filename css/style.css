@@ -115,9 +115,33 @@ h1 {
     background-color: white;
 }
 
+.fondo-blanco {
+    background-color: white;
+}
+
+.seleccion-color {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
+    width: 25%; 
+}
+
+.seleccion-color div:nth-child(2) {
+    padding: 0 20px;
+}
+
+.seleccion-color p {
+    text-align: center;
+    padding: 0;
+}
+
 table {
     border-spacing: 0px;
-    margin: 20px auto;
+    margin: 0 auto;
     background-color: white;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
 }
@@ -137,6 +161,10 @@ td {
 }
 
 #matriz td {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
+}
+
+#reiniciar:hover {
+    cursor: pointer;
 }
