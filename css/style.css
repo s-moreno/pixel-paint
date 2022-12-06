@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Press+Start+2P&display=swap');
+
+body {
+    font-family: 'Baloo 2', cursive;
+    background-color: whitesmoke;
+    font-size: 100%;
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+
+.rojo {
+    color: #fb6962;
+}
+
+.verde {
+    color: #79de79;
+}
+
+.amarillo {
+    color: #fcfc99;
+}
+
+.azul {
+    color: #A8E4EF;
+}
+
+/*****************************************************
+    1.- ESTILOS PARA LA INTERFAZ DE ACCESO AL JUEGO
+******************************************************/
+
+#login {
+    width: 40%;
+    margin: 10% auto 5%;
+}
+
+#login h2 {
+    margin-top: 0;
+}
+
+.coloreado {
+    text-shadow: 1px 1px 2px black;
+}
+
+#loginForm {
+    margin: 0 auto;
+    border: 1px solid gainsboro;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
+
+
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    align-items: center;
+}
+
+#loginForm input {
+    margin-bottom: 20px;
+}
+
+#message {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: .8rem;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.warning {
+    border: 1px solid orange;
+    margin-top: -15px;
+}
+
+.error {
+    border: 1px solid #fb6962;
+    margin-top: 15px;
+}
+
+.big {
+    font-size: xx-large;
+    color: orange;
+    padding-right: 10px;
+}
+
+.red {
+    color: #fb6962 !important;
+}
+
+/************************************************
+    2.- ESTILOS PARA LA INTERFAZ DEL JUEGO
+*************************************************/
+
+#rojo {
+    background-color: #fb6962;
+}
+
+#amarillo {
+    background-color: #fcfc99;
+}
+
+#verde {
+    background-color: #79de79;
+}
+
+#azul {
+    background-color: #A8E4EF;
+}
+
+#blanco {
+    background-color: white;
+}
+
+table {
+    border-spacing: 0px;
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
+}
+
+table:hover {
+    cursor: pointer;
+}
+
+td {
+    border: .1px solid #ccc;
+    text-align: center;
+}
+
+#colores td {
+    width: 50px;
+    height: 30px;
+}
+
+#matriz td {
+    width: 20px;
+    height: 20px;
+}
