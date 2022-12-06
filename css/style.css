@@ -115,6 +115,10 @@ h1 {
     background-color: white;
 }
 
+.fondo-blanco {
+    background-color: white;
+}
+
 .seleccion-color {
     display: flex;
     flex-direction: row;
@@ -159,4 +163,8 @@ td {
 #matriz td {
     width: 15px;
     height: 15px;
+}
+
+#reiniciar:hover {
+    cursor: pointer;
 }

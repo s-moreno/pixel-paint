@@ -189,7 +189,7 @@ $(document).ready(function() {
     }
   }
 
-  // Llamamos a la función "crearLienzo" y la añadimos al html
+  // Llamamos a la función "crearLienzo" y la añadimos la tabla que crea al html
   $("#juego").append(crearLienzo(filas, columnas));
 
   // eventos para determinar el color con qué pintar:
@@ -234,32 +234,22 @@ $(document).ready(function() {
 
   // Función para borrar los colores del lienzo/matriz
   function reiniciarLienzo() {
-    let tr, td;
-
-    let tabla = document.createElement("table"); //creamos la tabla
-    tabla.setAttribute("id", "matriz");
-
-    for (let i = 1; i <= filas; i++){
-      tr = document.createElement("tr"); //creamos una fila
-      for (let i = 1; i <= columnas; i++){
-        td = document.createElement("td") //creamos una columna
-        
-        // añadimos gestión de evento al hacer click en la celda
-        $(td).click(function () { 
-          controlClick(this);
-        });
-
-        // añadimos gestión de evento al posar el ratón sobre la celda
-        $(td).mouseover(function () { 
-          if (clicked) {
-            pintarCelda(this);
-          }
-        });
-        tr.appendChild(td); //añadimos la columna a la fila
+    for (let i; i < filas; i++) {
+      for (let j; j < columnas; j++) {
+        let celda = document.getElementById("#matriz").rows[i].cells[j];
+        console.log(typeof(celda))
+        console.log(celda);
       }
-      tabla.appendChild(tr); //añadimos la fila a tabla
     }
-    return tabla;
   }
+
+  // evento que reinicia (pinta en blanco) el lienzo/matriz
+  $("#reiniciar").click(function () { 
+    for (let i=0; i < filas; i++) {
+      for (let j=0; j < columnas; j++) {
+        document.getElementById("matriz").rows[i].cells[j].style.backgroundColor = "white";
+      }
+    }
+  });
 
 });
