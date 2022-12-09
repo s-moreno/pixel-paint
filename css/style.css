@@ -11,6 +11,10 @@ h1 {
     text-align: center;
 }
 
+p {
+    text-align: center;
+}
+
 .rojo {
     color: #fb6962;
 }
@@ -122,12 +126,12 @@ h1 {
 .seleccion-color {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
 
     margin: 0 auto;
-    width: 25%; 
+    width: 50%; 
 }
 
 .seleccion-color div:nth-child(2) {
@@ -140,7 +144,7 @@ h1 {
 }
 
 table {
-    border-spacing: 0px;
+    border-collapse: collapse;
     margin: 0 auto;
     background-color: white;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
@@ -157,6 +161,7 @@ td {
 
 #colores td {
     width: 50px;
+    min-width: 20px;
     height: 30px;
 }
 
@@ -167,4 +172,15 @@ td {
 
 #reiniciar:hover {
     cursor: pointer;
+}
+
+@media screen and (max-width: 550px){
+    .seleccion-color {
+        width: 90%;
+    }
+
+    #matriz td {
+        width: 10px;
+        height: 10px;
+    }
 }
