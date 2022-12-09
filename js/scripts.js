@@ -1,9 +1,14 @@
+/**
+  DESARROLLO WEB EN ENTORNO CLIENTE (DWEC)
+  UD03 - TAREA EVALUATIVA 01 (JUEGO DE PINTAR CELDAS)
+  SERGIO MORENO SANCHEZ
+  09/12/2022
+ */
+
 'use strict'
 
 /* Cargar jQuery */
 $(document).ready(function() {
-
-
 
 /********************************
   1.- INTERFAZ DE ACCESO AL JUEGO
@@ -120,7 +125,7 @@ $(document).ready(function() {
   }
 
   /**
-   * COLOREAR EL TÍTULO
+   * Función que colorea las letras de un título de dirente color
    */
    function colorearTitulo() {
     var titulo = $(".coloreado").text();
@@ -139,11 +144,30 @@ $(document).ready(function() {
   /*************************
     2.- INTERFAZ DEl JUEGO
   **************************/
+  
+  // Constantes y variables:
   const filas = 30;
   const columnas = 30;
   var clicked = false;
   var color = "white";
   
+  /*
+    FUNCIONES:
+      - crearLienzo()
+      - controlClick(td)
+      - pintarCelda(td)
+      - colorActivado(td)
+  */
+
+
+  /**
+   * Función que genera una tabla y la pinta en el html para ser usada de lienzo.
+   *  - El tamaño será según las constantes "filas" y "columnas".
+   *  - A su vez, se generan los eventos para cada celda (click y mouseover)
+   * 
+   * Parámetro de salida: un objeto tabla.
+   */
+
   function crearLienzo() {
     let tr, td;
 
@@ -173,7 +197,12 @@ $(document).ready(function() {
     return tabla;
   }
 
-  // controlar el inicio y fin del pintado
+  /**
+   * Función que controla el inicio y fin del click de pintado
+   * Si se trata del inicio de pintado, pinta la celda.
+   * 
+   * Parámetro de entrada: objeto celda (td)
+   */
   function controlClick(td) {
     if (clicked) {
       clicked = false;
@@ -183,11 +212,30 @@ $(document).ready(function() {
     }
   }
 
+ /**
+   * Función que pinta la celda con el color seleccionado
+   * 
+   * Parámetro de entrada: objeto celda (td)
+   */
   function pintarCelda(td) {
     if (clicked) {
       $(td).css("background-color", color); 
     }
   }
+
+  /**
+   * Función que marcha con un check el color seleccionado para pintar
+   * 
+   * Parámetro de entrada: objeto celda (td)
+   */
+  function colorActivado(td) {
+    $("#activado").remove();
+    $(td).append('<i id="activado" class="fa-solid fa-check"></i>');
+  }
+
+ /*
+    EVENTOS
+  */
 
   // Llamamos a la función "crearLienzo" y la añadimos la tabla que crea al html
   $("#juego").append(crearLienzo(filas, columnas));
@@ -199,49 +247,34 @@ $(document).ready(function() {
     $("#color").text("rojo");
     colorActivado(this);
   });
+
   $("#amarillo").click(function () { 
     color = $(this).css("background-color");
     clicked = false;
     $("#color").text("amarillo");
     colorActivado(this);
   });
+
   $("#verde").click(function () { 
     color = $(this).css("background-color");
     clicked = false;
     $("#color").text("verde");
     colorActivado(this);
   });
+
   $("#azul").click(function () { 
     color = $(this).css("background-color");
     clicked = false;
     $("#color").text("azul");
     colorActivado(this);
   });
+
   $("#blanco").click(function () { 
     color = "white";
     clicked = false;
     $("#color").text("blanco");
     colorActivado(this);
   });
-
-  function colorActivado(td) {
-    $("#activado").remove();
-    $(td).append('<i id="activado" class="fa-solid fa-check"></i>');
-  }
-
-
-
-
-  // Función para borrar los colores del lienzo/matriz
-  function reiniciarLienzo() {
-    for (let i; i < filas; i++) {
-      for (let j; j < columnas; j++) {
-        let celda = document.getElementById("#matriz").rows[i].cells[j];
-        console.log(typeof(celda))
-        console.log(celda);
-      }
-    }
-  }
 
   // evento que reinicia (pinta en blanco) el lienzo/matriz
   $("#reiniciar").click(function () { 

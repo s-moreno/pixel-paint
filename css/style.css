@@ -1,3 +1,10 @@
+/**
+  DESARROLLO WEB EN ENTORNO CLIENTE (DWEC)
+  UD03 - TAREA EVALUATIVA 01 (JUEGO DE PINTAR CELDAS)
+  SERGIO MORENO SANCHEZ
+  09/12/2022
+ */
+
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Press+Start+2P&display=swap');
 
 body {
@@ -173,6 +180,10 @@ td {
 #reiniciar:hover {
     cursor: pointer;
 }
+
+/************************************************
+    3.- MEDIA QUERIES
+*************************************************/
 
 @media screen and (max-width: 550px){
     .seleccion-color {
