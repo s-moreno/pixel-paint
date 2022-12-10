@@ -21,7 +21,13 @@ $(document).ready(function() {
   });
   // Colorar el título
   colorearTitulo();
-    
+  
+  // si no existe cookie, nos devuelve a la página de inicio (login)
+  if (location.pathname === "/juego.html" && document.cookie !== "login=true") {
+    window.open("/","_self");
+  }
+
+
   /*
     GESTION DE EVENTOS:
       -click boton
@@ -41,6 +47,8 @@ $(document).ready(function() {
         let resultado = validarLogin(usuario, contraseina)
         console.log(resultado);
         if (resultado){
+          // creamos cookie de sesión
+          document.cookie = "login=true"; //duración hasta que se cierre el navegador
           // abrir la página del juego
           window.open("juego.html","_self");
         } else {
