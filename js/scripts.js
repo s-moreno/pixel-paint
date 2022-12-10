@@ -284,6 +284,20 @@ $(document).ready(function() {
     colorActivado(this);
   });
 
+  /**
+   *  Eventos icono "reiniciar el lienzo"
+   */
+
+  // evento girar icono al entrar con el ratón
+  $("#reiniciar").mouseenter(function () { 
+    $(this).addClass("fa-spin");
+  });
+
+  // evento quita el giro al icono al salir el ratón
+  $("#reiniciar").mouseleave(function () { 
+    $(this).removeClass("fa-spin");
+  });
+
   // evento que reinicia (pinta en blanco) el lienzo/matriz
   $("#reiniciar").click(function () { 
     for (let i=0; i < filas; i++) {
@@ -292,5 +306,4 @@ $(document).ready(function() {
       }
     }
   });
-
 });
