@@ -14,7 +14,6 @@ $(document).ready(function() {
   1.- INTERFAZ DE ACCESO AL JUEGO
 *********************************/
 
-  // MAIN ---
   // parsear el json con jQuery y añadir como string al localStorage
   $.getJSON("model/usuarios.json", function(data){
     localStorage.setItem("usuarios", JSON.stringify(data));
@@ -134,7 +133,7 @@ $(document).ready(function() {
   }
 
   /**
-   * Función que colorea las letras de un título de dirente color
+   * Función que colorea las letras de un título de diferentes colores
    */
    function colorearTitulo() {
     var titulo = $(".coloreado").text();
