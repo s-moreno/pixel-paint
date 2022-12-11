@@ -23,7 +23,7 @@ $(document).ready(function() {
   
   // si no existe cookie, nos devuelve a la página de inicio (login)
   // así evitamos que alguien ingrese al juego ingresando la url directamente
-  if (location.pathname === "/juego.html" && document.cookie !== "login=true") {
+  if (/^\S+juego\.html$/.text(location.pathname) && document.cookie !== "login=true") {
     window.open("/","_self");
   }
 
