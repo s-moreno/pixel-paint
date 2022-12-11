@@ -23,10 +23,16 @@ $(document).ready(function() {
   
   // si no existe cookie, nos devuelve a la página de inicio (login)
   // así evitamos que alguien ingrese al juego ingresando la url directamente
-  if (/^\S+juego\.html$/.text(location.pathname) && document.cookie !== "login=true") {
-    window.open("/","_self");
+  function validarAcceso() { 
+    let expReg = /^\S+juego\.html$/
+    console.log(expReg.test(location.pathname));
+    console.log(document.cookie);
+    if (expReg.test(location.pathname) && document.cookie !== "login=true") {
+      alert("No has iniciado sesión");
+      history.back();
+    }
   }
-
+  validarAcceso();
 
   /*
     GESTION DE EVENTOS:
